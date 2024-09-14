@@ -3,6 +3,7 @@ package com.restapi_practice.Controller;
 import com.restapi_practice.dto.TestDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -75,7 +76,8 @@ public class TestRestController {
 //    }
 
     // 반환을 Stirng -> 객체로
-        @PostMapping("/test/users")
+    @ResponseStatus(HttpStatus.CREATED) //Http 상태코드 기능이 있는 어노테이션
+    @PostMapping("/test/users")
     public TestDto addUser (@RequestBody TestDto testDto) {
         log.info("testDto={}", testDto);
         return testDto;

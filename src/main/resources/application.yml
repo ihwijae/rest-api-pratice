@@ -1,3 +1,15 @@
 spring:
   application:
     name: estapi-practice
+
+
+## JPA Log
+Logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
