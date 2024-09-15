@@ -1,10 +1,8 @@
-package com.restapi_practice.Controller;
+package com.restapi_practice.controller;
 
 import com.restapi_practice.dto.TestDto;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
