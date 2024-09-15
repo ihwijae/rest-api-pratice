@@ -21,11 +21,13 @@ public class JpaUserRepository implements UserRepository {
         this.entityManager = entityManager;
     }
 
+
+
     @Override
     @Transactional // jpa의 모든 데이터 변경은 트랜잭션 안에서 이러우진다.
-    public User save(User user) {
+    public Long createUser(User user) {
         entityManager.persist(user); // 마치 자바 컬렉션에 넣는것처럼 값을 꺼내서 다시 set으로 넣어주는 과정이 필요가 없다. (같은 참조)
-        return user;
+        return user.getId();
     }
 
     @Override
