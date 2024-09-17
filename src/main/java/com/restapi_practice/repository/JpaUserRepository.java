@@ -32,7 +32,7 @@ public class JpaUserRepository implements UserRepository {
 
     @Override
     @Transactional // jpa의 모든 데이터 변경은 트랜잭션 안에서 이러우진다.
-    public void update(Long id, UserUpdateDto userUpdateDto) { // 이것도 자바 컬렉션과 비슷하다 컬렉션에서 객체를 꺼내와서 그 객체에 수정한 값을 다시 넣는것처럼..
+    public void updateUser(Long id, UserUpdateDto userUpdateDto) { // 이것도 자바 컬렉션과 비슷하다 컬렉션에서 객체를 꺼내와서 그 객체에 수정한 값을 다시 넣는것처럼..
         User findUser = entityManager.find(User.class, id);
         findUser.setUserName(userUpdateDto.getUserName());
         findUser.setPassword(userUpdateDto.getPassword());
@@ -54,7 +54,7 @@ public class JpaUserRepository implements UserRepository {
     }
 
     @Override
-    public void delete(Long id) {
+    public void deleteUser(Long id) {
 
     }
 
