@@ -1,8 +1,9 @@
-package com.restapi_practice.repository;
+package com.restapi_practice.repository.user;
 
 import com.restapi_practice.domain.User;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
@@ -11,15 +12,15 @@ import java.util.Optional;
 
 @Slf4j
 @Repository
+@RequiredArgsConstructor
 public class JpaUserRepository implements UserRepository {
 
+    private final SpringDataUserJpaRepository springDataUserJpaRepository;
     private final EntityManager entityManager; // 이게 바로 jpa 이 인터페이스를 토대로 저장하고, 조회하고, 수정하고..
     // 원래는 이거를 생성할때 데이터소스를 넣어주고, 엔티티매니저팩토리 란 것을 가지고 세팅을 해줘야 함.
     // 그런 과정을 스트링부트랑 통합을 해준다 (사용자가 주입받아서 사용하기만 하면 됨, 하지만 커스텀할때는 직접 세팅을 해줘야한다는것)
 
-    public JpaUserRepository(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
+
 
 
 
@@ -28,6 +29,7 @@ public class JpaUserRepository implements UserRepository {
     public Long createUser(User user) {
         entityManager.persist(user); // 마치 자바 컬렉션에 넣는것처럼 값을 꺼내서 다시 set으로 넣어주는 과정이 필요가 없다. (같은 참조)
         return user.getId();
+
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.restapi_practice.repository;
+package com.restapi_practice.repository.user;
 
 import lombok.Data;
 

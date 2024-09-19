@@ -1,16 +1,24 @@
-package com.restapi_practice.service;
+package com.restapi_practice.service.user;
 
 import com.restapi_practice.domain.User;
-import com.restapi_practice.repository.UserUpdateDto;
+import com.restapi_practice.repository.user.UserRepository;
+import com.restapi_practice.repository.user.UserUpdateDto;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
+@RequiredArgsConstructor
 public class UserMainService implements UserService{
+
+    private UserRepository userRepository;
 
     @Override
     public Long CreateUser(User user) {
         return null;
+
     }
 
     @Override

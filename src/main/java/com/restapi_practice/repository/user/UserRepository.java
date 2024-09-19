@@ -1,12 +1,13 @@
-package com.restapi_practice.repository;
+package com.restapi_practice.repository.user;
 
 import com.restapi_practice.domain.User;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<Long, User>{
+
+public interface UserRepository {
+
 
     public Long createUser (User user);
 
