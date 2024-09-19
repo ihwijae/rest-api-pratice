@@ -25,11 +25,14 @@ public class BoardRepositoryimpl implements BoardRepository{
 
     @Override
     public void update(Long id, BoardUpdateDto updateParam) {
+        Board findBoard = springDataBoardJpaRepository.findById(id).orElseThrow();
+        findBoard.setBoardTitle(updateParam.getTitle());
+        findBoard.setBoardDetail(updateParam.getDetail());
     }
 
     @Override
     public Optional<Board> findById(Long id) {
-        return Optional.empty();
+        return springDataBoardJpaRepository.findById(id);
     }
 
 

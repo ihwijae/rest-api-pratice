@@ -8,7 +8,7 @@ public interface BoardService {
     public BoardSaveRsp save(BoardSaveReq boardSaveReq);
 
 
-    public void update(BoardUpdateDto boardUpdateDto);
+    public BoardUpdateRsp update(Long id, BoardUpdateDto boardUpdateDto);
 
     public void delete(Long id);
 
