@@ -1,16 +1,12 @@
 package com.restapi_practice.repository.board;
 
 import com.restapi_practice.domain.Board;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
+/**
+ * 사용자 정의 메서드
+ * QueryDSL이랑 SpringJdbcTemplate 또는 mybatis를 같이 사용할때 주로 사용한다.
+ */
+public interface BoardRepository extends JpaRepository<Board, Long>, BoardRepositoryCustom {
 
-public interface BoardRepository {
-
-
-
-    public BoardSaveRsp save(Board board);
-
-    public void update(Long id, BoardUpdateDto updateParam);
-
-    public Optional<Board> findById(Long id);
 }
