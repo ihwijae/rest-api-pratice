@@ -56,5 +56,5 @@ public class BoardApiController {
         return boardAllListRsps;
     }
 
-    
+
 }

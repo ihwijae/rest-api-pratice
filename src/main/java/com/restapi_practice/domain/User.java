@@ -35,6 +35,7 @@ public class User {
     @Column(name = "sex")
     private String sex;
 
+
     public User(Long id, String loginId, String userName, String password, int age, LocalDate birthDate, String sex) {
         this.id = id;
         this.loginId = loginId;
@@ -45,7 +46,5 @@ public class User {
         this.sex = sex;
     }
 
-    public User() {
 
-    }
 }
