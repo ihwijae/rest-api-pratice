@@ -14,7 +14,7 @@ public class Post {
 
     private String postName;
     private String postContent;
-    private String postCreateDate LocalDateTime;
+    private LocalDateTime postCreateDate;
     private String postAuthor;
 
     @ManyToOne

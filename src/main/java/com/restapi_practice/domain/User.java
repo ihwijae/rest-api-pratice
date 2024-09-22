@@ -36,6 +36,8 @@ public class User {
     private String sex;
 
 
+
+
     public User(Long id, String loginId, String userName, String password, int age, LocalDate birthDate, String sex) {
         this.id = id;
         this.loginId = loginId;
