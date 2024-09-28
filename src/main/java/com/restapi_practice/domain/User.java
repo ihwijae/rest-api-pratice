@@ -12,19 +12,22 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-public class User {
+public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // 식별자
 
-    @Column(name = "login_id")
-    private String loginId; // 로그인 아이디
+    @Column(name = "user_email")
+    private String userEmail;
 
     @Column(name = "user_name")
     private String userName;
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "nick_name")
+    private String nickName;
 
     @Column(name = "age")
     private int age;
@@ -35,12 +38,14 @@ public class User {
     @Column(name = "sex")
     private String sex;
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
 
+    public Member
 
-    public User(Long id, String loginId, String userName, String password, int age, LocalDate birthDate, String sex) {
+            (Long id,  String userName, String password, int age, LocalDate birthDate, String sex) {
         this.id = id;
-        this.loginId = loginId;
         this.userName = userName;
         this.password = password;
         this.age = age;
@@ -49,4 +54,7 @@ public class User {
     }
 
 
+    public Member() {
+
+    }
 }

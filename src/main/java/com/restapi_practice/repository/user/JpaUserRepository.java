@@ -1,6 +1,6 @@
 package com.restapi_practice.repository.user;
 
-import com.restapi_practice.domain.User;
+import com.restapi_practice.domain.Member;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +26,7 @@ public class JpaUserRepository implements UserRepository {
 
     @Override
     @Transactional // jpa의 모든 데이터 변경은 트랜잭션 안에서 이러우진다.
-    public Long createUser(User user) {
+    public Long createUser(Member user) {
         entityManager.persist(user); // 마치 자바 컬렉션에 넣는것처럼 값을 꺼내서 다시 set으로 넣어주는 과정이 필요가 없다. (같은 참조)
         return user.getId();
 
@@ -35,7 +35,7 @@ public class JpaUserRepository implements UserRepository {
     @Override
     @Transactional // jpa의 모든 데이터 변경은 트랜잭션 안에서 이러우진다.
     public void updateUser(Long id, UserUpdateDto userUpdateDto) { // 이것도 자바 컬렉션과 비슷하다 컬렉션에서 객체를 꺼내와서 그 객체에 수정한 값을 다시 넣는것처럼..
-        User findUser = entityManager.find(User.class, id);
+        Member findUser = entityManager.find(Member.class, id);
         findUser.setUserName(userUpdateDto.getUserName());
         findUser.setPassword(userUpdateDto.getPassword());
         findUser.setBirthDate(userUpdateDto.getBirth_date());
@@ -50,9 +50,9 @@ public class JpaUserRepository implements UserRepository {
 
     // 조회는 굳이 트랜잭션 할 필요 없을듯하다.
     @Override
-    public Optional<User> findByUserId(Long id) {
-        User user = entityManager.find(User.class, id); // 이것마치 자바컬렉션과 같은듯하다 컬렉션에서 id로 해당 인덱스에 있는 객체를 꺼내오는것처럼..
-        return Optional.ofNullable(user);
+    public Optional<Member> findByUserId(Long id) {
+        Member member = entityManager.find(Member.class, id); // 이것마치 자바컬렉션과 같은듯하다 컬렉션에서 id로 해당 인덱스에 있는 객체를 꺼내오는것처럼..
+        return Optional.ofNullable(member);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class JpaUserRepository implements UserRepository {
     }
 
     @Override
-    public List<User> findAllUser(UserSearchAllDto userSearchAllDto) {
+    public List<Member findAllUser(UserSearchAllDto userSearchAllDto) {
 
         return List.of();
     }
